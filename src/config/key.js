@@ -1,4 +1,0 @@
-export const config = {
-  PUBLIC_KEY: '31840326800c41c5001cb857fa0d266e',
-  PRIVATE_KEY: '3deac5141885f29b9103182be474dd696df1653b'
-};
