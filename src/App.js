@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Landing from './components/Landing';
+import Header from './components/Header/Header';
+import Comics from './components/Comics';
+import Movies from './components/Movies';
 
 class App extends Component {
   render() {
     return (
-      <div className="content">
-        <Header />
-        <div className="container center-align">
-          <h4>Welcome to API MARVEL</h4>
-          <p>Navigate with different links in menu</p>
+      <BrowserRouter>
+        <div className="container">
+          <Route path="/" component={Header} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/comics" component={Comics} />
+          <Route path="/Movies" component={Movies} />
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }
