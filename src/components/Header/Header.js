@@ -13,10 +13,10 @@ const Header = () => {
         </ul>
         <ul className="nav-right col s5 right">
           <li>
-            <Link to="/comics">Comics</Link>
+            <Link to="/favorites">Favorites</Link>
           </li>
           <li>
-            <Link to="/series">Series</Link>
+            <Link to="/comics">Comics</Link>
           </li>
           <li>
             <Link to="/characters">Characters</Link>

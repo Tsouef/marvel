@@ -8,6 +8,7 @@ import './CharactersList.css';
 
 class Characters extends Component {
   componentDidMount() {
+    console.log('ComponentDidMount');
     if (this.props.match.params.letter) {
       this.props.fetchCharactersByLetter(this.props.match.params.letter);
     } else {
@@ -15,11 +16,11 @@ class Characters extends Component {
     }
   }
 
-  componentWillReceiveProps() {
-    if (this.props.match.params.letter) {
-      this.props.fetchCharactersByLetter(this.props.match.params.letter);
-    } else {
-      this.props.fetchCharacters();
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps');
+    console.log(nextProps.match.params.letter, this.props.match.params.letter);
+    if (nextProps.match.params.letter !== this.props.match.params.letter) {
+      this.props.fetchCharactersByLetter(nextProps.match.params.letter);
     }
   }
 
@@ -36,6 +37,7 @@ class Characters extends Component {
           </div>
           <div className="card-action">
             <Link to={`/characters/id/${id}`}>En voir plus</Link>
+            <button onClick={() => this.props.addFavorites()}>Add to my favorites</button>
           </div>
         </div>
       );

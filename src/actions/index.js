@@ -7,7 +7,7 @@ const API_URL = 'https://gateway.marvel.com:443/v1/public';
 const params = `?ts=${TIMESTAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`;
 
 export const fetchComics = () => async dispatch => {
-  const res = await axios.get(`${API_URL}/comics${params}`);
+  const res = await axios.get(`${API_URL}/comics${params}&limit=100`);
 
   dispatch({
     type: FETCH_COMICS,
@@ -16,7 +16,7 @@ export const fetchComics = () => async dispatch => {
 };
 
 export const fetchComicById = id => async dispatch => {
-  const res = await axios.get(`${API_URL}/comics/${id}${params}`);
+  const res = await axios.get(`${API_URL}/comics/${id}${params}&limit=100`);
 
   dispatch({
     type: FETCH_COMIC,
@@ -25,7 +25,7 @@ export const fetchComicById = id => async dispatch => {
 };
 
 export const fetchCharacters = () => async dispatch => {
-  const res = await axios.get(`${API_URL}/characters${params}`);
+  const res = await axios.get(`${API_URL}/characters${params}&limit=100`);
 
   dispatch({
     type: FETCH_CHARACTERS,
@@ -34,7 +34,7 @@ export const fetchCharacters = () => async dispatch => {
 };
 
 export const fetchCharactersByLetter = letter => async dispatch => {
-  const res = await axios.get(`${API_URL}/characters${params}&nameStartsWith=${letter}`);
+  const res = await axios.get(`${API_URL}/characters${params}&nameStartsWith=${letter}&limit=100`);
 
   dispatch({
     type: FETCH_CHARACTERS,
@@ -43,7 +43,7 @@ export const fetchCharactersByLetter = letter => async dispatch => {
 };
 
 export const fetchCharacterById = id => async dispatch => {
-  const res = await axios.get(`${API_URL}/characters/${id}${params}`);
+  const res = await axios.get(`${API_URL}/characters/${id}${params}&limit=100`);
 
   dispatch({
     type: FETCH_CHARACTER,
