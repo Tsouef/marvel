@@ -1,0 +1,21 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  max-width: 48%;
+  min-width: 48%;
+}
+
+.card .card-title {
+  font-size: 16px;
+  display: block;
+  font-weight: bold;
+}
+
+.card .card-content p {
+  font-size: 14px;
+}

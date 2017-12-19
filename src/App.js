@@ -5,7 +5,8 @@ import Landing from './components/Landing';
 import Header from './components/Header/Header';
 import ComicsList from './components/ComicsList/ComicsList';
 import Comic from './components/Comic/Comic';
-import Movies from './components/Movies';
+import CharactersList from './components/CharactersList/CharactersList';
+import Character from './components/Character/Character';
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/comics" component={ComicsList} />
           <Route exact path="/comics/:id" component={Comic} />
-          <Route exact path="/Movies" component={Movies} />
+          <Route exact path="/characters" component={CharactersList} />
+          <Route exact path="/characters/:id" component={Character} />
         </div>
       </BrowserRouter>
     );

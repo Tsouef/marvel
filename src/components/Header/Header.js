@@ -13,9 +13,6 @@ const Header = () => {
         </ul>
         <ul className="nav-right col s5 right">
           <li>
-            <Link to="/movies">Movies</Link>
-          </li>
-          <li>
             <Link to="/comics">Comics</Link>
           </li>
           <li>
