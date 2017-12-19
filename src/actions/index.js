@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_COMICS, FETCH_COMIC, FETCH_CHARACTERS, FETCH_CHARACTER } from './types';
+import { FETCH_COMICS, FETCH_COMIC, FETCH_CHARACTERS, FETCH_CHARACTER, ADD_FAVORITE } from './types';
 import { HASH, PUBLIC_KEY, TIMESTAMP } from '../config';
 
 const API_URL = 'https://gateway.marvel.com:443/v1/public';
@@ -49,4 +49,11 @@ export const fetchCharacterById = id => async dispatch => {
     type: FETCH_CHARACTER,
     payload: res.data.data.results[0]
   });
+};
+
+export const addFavorites = favorite => {
+  return {
+    type: ADD_FAVORITE,
+    payload: favorite
+  };
 };
