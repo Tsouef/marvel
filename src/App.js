@@ -18,7 +18,8 @@ class App extends Component {
           <Route exact path="/comics" component={ComicsList} />
           <Route exact path="/comics/:id" component={Comic} />
           <Route exact path="/characters" component={CharactersList} />
-          <Route exact path="/characters/:id" component={Character} />
+          <Route exact path="/characters/id/:id" component={Character} />
+          <Route exact path="/characters/letter/:letter" component={CharactersList} />
         </div>
       </BrowserRouter>
     );

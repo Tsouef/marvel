@@ -10,6 +10,9 @@ class Comics extends Component {
   }
 
   renderContent() {
+    if (this.props.comics.length <= 0) {
+      return <div>Waiting</div>;
+    }
     return this.props.comics.map(({ id, thumbnail, title, description }, index) => {
       return (
         <div key={id} className="card">

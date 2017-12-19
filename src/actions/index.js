@@ -33,6 +33,15 @@ export const fetchCharacters = () => async dispatch => {
   });
 };
 
+export const fetchCharactersByLetter = letter => async dispatch => {
+  const res = await axios.get(`${API_URL}/characters${params}&nameStartsWith=${letter}`);
+
+  dispatch({
+    type: FETCH_CHARACTERS,
+    payload: res.data.data.results
+  });
+};
+
 export const fetchCharacterById = id => async dispatch => {
   const res = await axios.get(`${API_URL}/characters/${id}${params}`);
 
