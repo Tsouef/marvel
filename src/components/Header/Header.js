@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Header.css';
+import './Header.css';
 
 const Header = () => {
   return (
     <header>
-      <nav className="row">
+      <nav>
         <ul className="col s7">
           <Link to="/" className="left brand-logo">
             API MARVEL
@@ -16,7 +16,7 @@ const Header = () => {
             <Link to="/movies">Movies</Link>
           </li>
           <li>
-            <Link to="/comics">comics</Link>
+            <Link to="/comics">Comics</Link>
           </li>
           <li>
             <Link to="/series">Series</Link>

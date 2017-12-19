@@ -3,7 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import Header from './components/Header/Header';
-import Comics from './components/Comics';
+import ComicsList from './components/ComicsList/ComicsList';
+import Comic from './components/Comic/Comic';
 import Movies from './components/Movies';
 
 class App extends Component {
@@ -13,8 +14,9 @@ class App extends Component {
         <div className="container">
           <Route path="/" component={Header} />
           <Route exact path="/" component={Landing} />
-          <Route exact path="/comics" component={Comics} />
-          <Route path="/Movies" component={Movies} />
+          <Route exact path="/comics" component={ComicsList} />
+          <Route exact path="/comics/:id" component={Comic} />
+          <Route exact path="/Movies" component={Movies} />
         </div>
       </BrowserRouter>
     );

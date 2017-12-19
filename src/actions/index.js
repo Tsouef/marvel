@@ -1,7 +1,6 @@
 import axios from 'axios';
-import moment from 'moment';
 
-import { FETCH_COMICS } from './types';
+import { FETCH_COMICS, FETCH_COMIC } from './types';
 import { HASH, PUBLIC_KEY, TIMESTAMP } from '../config';
 
 const API_URL = 'https://gateway.marvel.com:443/v1/public';
@@ -13,5 +12,13 @@ export const fetchComics = () => async dispatch => {
   dispatch({
     type: FETCH_COMICS,
     payload: res.data.data.results
+  });
+};
+
+export const fetchComicById = id => async dispatch => {
+  const res = await axios.get(`${API_URL}/comics/${id}${params}`);
+  dispatch({
+    type: FETCH_COMIC,
+    payload: res.data.data.results[0]
   });
 };

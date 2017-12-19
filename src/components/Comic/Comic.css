@@ -1,0 +1,23 @@
+.comic {
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.comic-description {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 20px;
+}
+
+.meta {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.comic-characters li {
+  margin: 0 0 0 15px;
+  line-height: 1.4;
+}
