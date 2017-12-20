@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  fetchCharacters,
-  fetchCharactersByLetter,
-  addFavorites
-} from '../actions';
+import { fetchCharactersByLetter, addFavorites } from '../actions';
 
 import Pagination from './Pagination';
 import Card from './Card/Card';
 
-class Characters extends Component {
+class CharactersFilter extends Component {
   componentDidMount() {
-    if (this.props.characters.all.length <= 0) {
-      this.props.fetchCharacters();
+    this.props.fetchCharactersByLetter(this.props.match.params.letter);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.letter !== this.props.match.params.letter) {
+      this.props.fetchCharactersByLetter(nextProps.match.params.letter);
     }
   }
 
   renderContent() {
-    if (this.props.characters.all.length <= 0) {
+    if (this.props.characters.filter.length <= 0) {
       return <div>Waiting</div>;
     }
 
-    return this.props.characters.all.map((character, index) => {
+    return this.props.characters.filter.map((character, index) => {
       return (
         <Card
           key={index}
@@ -33,7 +33,12 @@ class Characters extends Component {
       );
     });
   }
+
   render() {
+    console.log(this.props);
+    if (this.props.characters.length <= 0) {
+      return <div>Waiting</div>;
+    }
     return (
       <div>
         <Pagination />
@@ -44,11 +49,11 @@ class Characters extends Component {
 }
 
 function mapStateToProps({ characters }) {
+  console.log(characters);
   return { characters };
 }
 
 export default connect(mapStateToProps, {
-  fetchCharacters,
   fetchCharactersByLetter,
   addFavorites
-})(Characters);
+})(CharactersFilter);

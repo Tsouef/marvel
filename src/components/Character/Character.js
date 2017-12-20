@@ -9,11 +9,11 @@ class Character extends Component {
   }
 
   render() {
-    if (this.props.character.length <= 0) {
+    if (this.props.characters.character.length <= 0) {
       return <div>Waiting</div>;
     }
 
-    const { thumbnail, name, description } = this.props.character;
+    const { thumbnail, name, description } = this.props.characters.character;
 
     return (
       <div className="character">
@@ -34,8 +34,8 @@ class Character extends Component {
   }
 }
 
-function mapStateToProps({ character }) {
-  return { character };
+function mapStateToProps({ characters }) {
+  return { characters };
 }
 
 export default connect(mapStateToProps, { fetchCharacterById })(Character);

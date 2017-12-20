@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import ComicsList from './components/ComicsList';
 import Comic from './components/Comic/Comic';
 import CharactersList from './components/CharactersList';
+import CharactersFilter from './components/CharactersFilter';
 import Character from './components/Character/Character';
 import Favorites from './components/Favorites';
 
@@ -23,7 +24,7 @@ class App extends Component {
           <Route
             exact
             path="/characters/letter/:letter"
-            component={CharactersList}
+            component={CharactersFilter}
           />
           <Route exact path="/favorites" component={Favorites} />
         </div>

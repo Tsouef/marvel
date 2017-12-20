@@ -1,6 +1,13 @@
 import axios from 'axios';
 
-import { FETCH_COMICS, FETCH_COMIC, FETCH_CHARACTERS, FETCH_CHARACTER, ADD_FAVORITE } from './types';
+import {
+  FETCH_COMICS,
+  FETCH_COMIC,
+  FETCH_CHARACTERS,
+  FETCH_CHARACTER,
+  ADD_FAVORITE,
+  FILTER_CHARACTERS_BY_LETTER
+} from './types';
 import { HASH, PUBLIC_KEY, TIMESTAMP } from '../config';
 
 const API_URL = 'https://gateway.marvel.com:443/v1/public';
@@ -34,10 +41,12 @@ export const fetchCharacters = () => async dispatch => {
 };
 
 export const fetchCharactersByLetter = letter => async dispatch => {
-  const res = await axios.get(`${API_URL}/characters${params}&nameStartsWith=${letter}&limit=100`);
+  const res = await axios.get(
+    `${API_URL}/characters${params}&nameStartsWith=${letter}&limit=100`
+  );
 
   dispatch({
-    type: FETCH_CHARACTERS,
+    type: FILTER_CHARACTERS_BY_LETTER,
     payload: res.data.data.results
   });
 };
