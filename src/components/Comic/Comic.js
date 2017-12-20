@@ -9,14 +9,19 @@ class Comic extends Component {
   }
 
   renderCharacters(characters) {
-    console.log(characters);
     return characters.map(character => {
       return <li key={character.name}>{character.name}</li>;
     });
   }
 
   render() {
-    const { thumbnail, title, description, prices, characters } = this.props.comic;
+    const {
+      thumbnail,
+      title,
+      description,
+      prices,
+      characters
+    } = this.props.comic;
 
     if (this.props.comic.length <= 0) {
       return <div>Waiting</div>;
@@ -25,7 +30,7 @@ class Comic extends Component {
     return (
       <div className="comic">
         <div className="comic-cover">
-          <img src={`${thumbnail.path}.${thumbnail.extension}`} />
+          <img alt="" src={`${thumbnail.path}.${thumbnail.extension}`} />
         </div>
         <div className="comic-description">
           <p>
@@ -40,7 +45,9 @@ class Comic extends Component {
           </p>
           <p>
             <span className="meta">Characters: </span>
-            <ul className="comic-characters">{this.renderCharacters(characters.items)}</ul>
+            <ul className="comic-characters">
+              {this.renderCharacters(characters.items)}
+            </ul>
           </p>
         </div>
       </div>

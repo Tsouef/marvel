@@ -9,5 +9,6 @@ export default combineReducers({
   comics: comicsReducer,
   comic: comicReducer,
   characters: charactersReducer,
+  character: characterReducer,
   favorites: favoritesReducer
 });

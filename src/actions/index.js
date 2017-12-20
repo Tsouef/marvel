@@ -43,7 +43,7 @@ export const fetchCharactersByLetter = letter => async dispatch => {
 };
 
 export const fetchCharacterById = id => async dispatch => {
-  const res = await axios.get(`${API_URL}/characters/${id}${params}&limit=100`);
+  const res = await axios.get(`${API_URL}/characters/${id}${params}`);
 
   dispatch({
     type: FETCH_CHARACTER,

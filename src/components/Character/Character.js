@@ -3,29 +3,22 @@ import { connect } from 'react-redux';
 import { fetchCharacterById } from '../../actions';
 import './Character.css';
 
-class Comic extends Component {
+class Character extends Component {
   componentDidMount() {
     this.props.fetchCharacterById(this.props.match.params.id);
   }
 
-  renderCharacters(characters) {
-    console.log(characters);
-    return characters.map(character => {
-      return <li key={character.name}>{character.name}</li>;
-    });
-  }
-
   render() {
-    const { thumbnail, name, description } = this.props.character;
-
     if (this.props.character.length <= 0) {
       return <div>Waiting</div>;
     }
 
+    const { thumbnail, name, description } = this.props.character;
+
     return (
       <div className="character">
         <div className="character-cover">
-          <img src={`${thumbnail.path}.${thumbnail.extension}`} />
+          <img alt="" src={`${thumbnail.path}.${thumbnail.extension}`} />
         </div>
         <div className="character-description">
           <p>
@@ -45,4 +38,4 @@ function mapStateToProps({ character }) {
   return { character };
 }
 
-export default connect(mapStateToProps, { fetchCharacterById })(Comic);
+export default connect(mapStateToProps, { fetchCharacterById })(Character);
