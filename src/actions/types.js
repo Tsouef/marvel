@@ -12,3 +12,4 @@ export const RECEIVE_CHARACTERS_BY_LETTER = 'receive_characters_by_letter';
 
 // FAVORITE
 export const ADD_FAVORITE = 'add_favorite';
+export const DELETE_FAVORITE = 'delete_favorite';
