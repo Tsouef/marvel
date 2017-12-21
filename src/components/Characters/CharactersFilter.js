@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCharactersByLetter, addFavorites } from '../../actions';
+import {
+  fetchCharactersByLetter,
+  addFavorites,
+  showNotification,
+  showNotificationWithTimeout,
+  hideNotification
+} from '../../actions';
 
 import Pagination from '../Pagination';
 import Card from '../Card/Card';
@@ -16,6 +22,11 @@ class CharactersFilter extends Component {
     }
   }
 
+  handleFavorite(character) {
+    this.props.addFavorites(character);
+    this.props.showNotificationWithTimeout('Add to favorites.');
+  }
+
   renderContent() {
     return this.props.characters.filter.map((character, index) => {
       return (
@@ -23,7 +34,7 @@ class CharactersFilter extends Component {
           key={index}
           informations={character}
           title={character.name}
-          onClick={() => this.props.addFavorites(character)}
+          onClick={() => this.handleFavorite(character)}
           category="characters"
         />
       );
@@ -50,5 +61,8 @@ function mapStateToProps({ characters }) {
 
 export default connect(mapStateToProps, {
   fetchCharactersByLetter,
-  addFavorites
+  addFavorites,
+  showNotification,
+  hideNotification,
+  showNotificationWithTimeout
 })(CharactersFilter);

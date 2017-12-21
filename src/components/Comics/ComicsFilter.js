@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchComicsByLetter, addFavorites } from '../../actions';
+import {
+  fetchComicsByLetter,
+  addFavorites,
+  showNotificationWithTimeout
+} from '../../actions';
 
 import Pagination from '../Pagination';
 import Card from '../Card/Card';
@@ -16,6 +20,11 @@ class ComicsFilter extends Component {
     }
   }
 
+  handleFavorite(comic) {
+    this.props.addFavorites(comic);
+    this.props.showNotificationWithTimeout('Add to favorites.');
+  }
+
   renderContent() {
     return this.props.comics.filter.map((comic, index) => {
       return (
@@ -23,7 +32,7 @@ class ComicsFilter extends Component {
           key={index}
           informations={comic}
           title={comic.title}
-          onClick={() => this.props.addFavorites(comic)}
+          onClick={() => this.handleFavorite(comic)}
           category="comics"
         />
       );
@@ -50,5 +59,6 @@ function mapStateToProps({ comics }) {
 
 export default connect(mapStateToProps, {
   fetchComicsByLetter,
-  addFavorites
+  addFavorites,
+  showNotificationWithTimeout
 })(ComicsFilter);

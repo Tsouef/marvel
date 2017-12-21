@@ -1,23 +1,39 @@
-import { ADD_FAVORITE, DELETE_FAVORITE } from '../actions/types';
+import {
+  ADD_FAVORITE,
+  DELETE_FAVORITE,
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION
+} from '../actions/types';
 
-export default function(state = [], action) {
+const INITIAL_STATE = {
+  favorites: [],
+  showNotification: false,
+  notificationContent: ''
+};
+export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ADD_FAVORITE:
-      return [
-        ...state,
-        {
+      return Object.assign({}, state, {
+        favorites: state.favorites.concat({
           id: action.payload.id,
           thumbnail: action.payload.thumbnail,
           name: action.payload.name,
           description: action.payload.description
-        }
-      ];
+        })
+      });
     case DELETE_FAVORITE:
-      // console.log(state.favorites.item[0].id);
-      // console.log(action.payload.id);
-      const filteredFavorites = state.filter(item => item.id !== action.id);
-      console.log(filteredFavorites);
-      return filteredFavorites;
+      return Object.assign({}, state, {
+        favorites: state.favorites.filter(({ id }) => id !== action.id)
+      });
+    case SHOW_NOTIFICATION:
+      return Object.assign({}, state, {
+        showNotification: true,
+        notificationContent: action.text
+      });
+    case HIDE_NOTIFICATION:
+      return Object.assign({}, state, {
+        showNotification: false
+      });
     default:
       return state;
   }

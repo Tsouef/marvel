@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import Header from './components/Header/Header';
+import Notification from './components/Notification/Notification';
 import ComicsList from './components/Comics/ComicsList';
 import ComicsFilter from './components/Comics/ComicsFilter';
 import Comic from './components/Comics/Comic';
@@ -15,8 +16,9 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="container" style={{ position: 'relative' }}>
           <Route path="/" component={Header} />
+          <Route path="/" component={Notification} />
           <Route exact path="/" component={Landing} />
           <Route exact path="/comics" component={ComicsList} />
           <Route exact path="/comics/id/:id" component={Comic} />

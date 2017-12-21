@@ -5,7 +5,7 @@ import { deleteFavorite } from '../actions';
 
 class Favorites extends Component {
   renderContent() {
-    return this.props.favorites.map((favorite, index) => {
+    return this.props.favorites.favorites.map((favorite, index) => {
       const { thumbnail, name, description, id } = favorite;
       return (
         <div key={id} className="card">
@@ -30,7 +30,7 @@ class Favorites extends Component {
   }
 
   render() {
-    if (this.props.favorites.length <= 0) {
+    if (this.props.favorites.favorites.length <= 0) {
       return <div>Veuillez selectionner des favoris</div>;
     }
     return <div>{this.renderContent()}</div>;
@@ -38,6 +38,7 @@ class Favorites extends Component {
 }
 
 function mapStateToProps({ favorites }) {
+  console.log(favorites);
   return { favorites };
 }
 

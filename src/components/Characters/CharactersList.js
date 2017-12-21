@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   fetchCharacters,
   fetchCharactersByLetter,
-  addFavorites
+  addFavorites,
+  showNotificationWithTimeout
 } from '../../actions';
 
 import Pagination from '../Pagination';
@@ -14,6 +15,11 @@ class Characters extends Component {
     if (this.props.characters.all.length <= 0) {
       this.props.fetchCharacters();
     }
+  }
+
+  handleFavorite(character) {
+    this.props.addFavorites(character);
+    this.props.showNotificationWithTimeout('Add to favorites.');
   }
 
   renderContent() {
@@ -27,7 +33,7 @@ class Characters extends Component {
           key={index}
           informations={character}
           title={character.name}
-          onClick={() => this.props.addFavorites(character)}
+          onClick={() => this.handleFavorite(character)}
           category="characters"
         />
       );
@@ -50,5 +56,6 @@ function mapStateToProps({ characters }) {
 export default connect(mapStateToProps, {
   fetchCharacters,
   fetchCharactersByLetter,
-  addFavorites
+  addFavorites,
+  showNotificationWithTimeout
 })(Characters);
