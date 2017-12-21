@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchComics, addFavorites } from '../actions';
+import { fetchComics, addFavorites } from '../../actions';
 
-import Card from './Card/Card';
+import Pagination from '../Pagination';
+import Card from '../Card/Card';
 
 class Comics extends Component {
   componentDidMount() {
@@ -10,11 +11,11 @@ class Comics extends Component {
   }
 
   renderContent() {
-    if (this.props.comics.length <= 0) {
+    if (this.props.comics.all.length <= 0) {
       return <div>Waiting</div>;
     }
 
-    return this.props.comics.map((comic, index) => {
+    return this.props.comics.all.map((comic, index) => {
       return (
         <Card
           key={index}
@@ -27,7 +28,12 @@ class Comics extends Component {
     });
   }
   render() {
-    return <div className="row card-container">{this.renderContent()}</div>;
+    return (
+      <div>
+        <Pagination category="comics" />
+        <div className="row card-container">{this.renderContent()}</div>
+      </div>
+    );
   }
 }
 

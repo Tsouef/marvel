@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCharactersByLetter, addFavorites } from '../actions';
+import { fetchCharactersByLetter, addFavorites } from '../../actions';
 
-import Pagination from './Pagination';
-import Card from './Card/Card';
+import Pagination from '../Pagination';
+import Card from '../Card/Card';
 
 class CharactersFilter extends Component {
   componentDidMount() {
@@ -17,10 +17,6 @@ class CharactersFilter extends Component {
   }
 
   renderContent() {
-    if (this.props.characters.filter.length <= 0) {
-      return <div>Waiting</div>;
-    }
-
     return this.props.characters.filter.map((character, index) => {
       return (
         <Card
@@ -35,13 +31,13 @@ class CharactersFilter extends Component {
   }
 
   render() {
-    console.log(this.props);
-    if (this.props.characters.length <= 0) {
-      return <div>Waiting</div>;
+    if (this.props.characters.isFetching) {
+      return <div>Loading...</div>;
     }
+
     return (
       <div>
-        <Pagination />
+        <Pagination category="characters" />
         <div className="row card-container">{this.renderContent()}</div>
       </div>
     );
@@ -49,7 +45,6 @@ class CharactersFilter extends Component {
 }
 
 function mapStateToProps({ characters }) {
-  console.log(characters);
   return { characters };
 }
 

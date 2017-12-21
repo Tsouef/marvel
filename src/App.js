@@ -3,11 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import Header from './components/Header/Header';
-import ComicsList from './components/ComicsList';
-import Comic from './components/Comic/Comic';
-import CharactersList from './components/CharactersList';
-import CharactersFilter from './components/CharactersFilter';
-import Character from './components/Character/Character';
+import ComicsList from './components/Comics/ComicsList';
+import ComicsFilter from './components/Comics/ComicsFilter';
+import Comic from './components/Comics/Comic';
+import CharactersList from './components/Characters/CharactersList';
+import CharactersFilter from './components/Characters/CharactersFilter';
+import Character from './components/Characters/Character';
 import Favorites from './components/Favorites';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/comics" component={ComicsList} />
           <Route exact path="/comics/id/:id" component={Comic} />
+          <Route exact path="/comics/letter/:letter" component={ComicsFilter} />
           <Route exact path="/characters" component={CharactersList} />
           <Route exact path="/characters/id/:id" component={Character} />
           <Route

@@ -37,7 +37,7 @@ class Pagination extends Component {
     return this.state.letters.map(letter => {
       return (
         <li key={letter}>
-          <Link to={`/characters/letter/${letter}`}>{letter}</Link>
+          <Link to={`/${this.props.category}/letter/${letter}`}>{letter}</Link>
         </li>
       );
     });

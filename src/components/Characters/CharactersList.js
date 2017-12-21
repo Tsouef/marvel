@@ -4,10 +4,10 @@ import {
   fetchCharacters,
   fetchCharactersByLetter,
   addFavorites
-} from '../actions';
+} from '../../actions';
 
-import Pagination from './Pagination';
-import Card from './Card/Card';
+import Pagination from '../Pagination';
+import Card from '../Card/Card';
 
 class Characters extends Component {
   componentDidMount() {
@@ -17,8 +17,8 @@ class Characters extends Component {
   }
 
   renderContent() {
-    if (this.props.characters.all.length <= 0) {
-      return <div>Waiting</div>;
+    if (this.props.characters.isFetching) {
+      return <div>Loading...</div>;
     }
 
     return this.props.characters.all.map((character, index) => {
@@ -36,7 +36,7 @@ class Characters extends Component {
   render() {
     return (
       <div>
-        <Pagination />
+        <Pagination category="characters" />
         <div className="row card-container">{this.renderContent()}</div>
       </div>
     );

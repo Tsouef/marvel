@@ -1,7 +1,8 @@
 import {
   FETCH_CHARACTERS,
-  FETCH_CHARACTER,
-  FILTER_CHARACTERS_BY_LETTER
+  RECEIVE_CHARACTERS,
+  RECEIVE_CHARACTERS_BY_LETTER,
+  RECEIVE_CHARACTER
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -9,19 +10,27 @@ const INITIAL_STATE = {
   all: [],
   character: []
 };
+
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_CHARACTERS:
       return Object.assign({}, state, {
-        all: action.payload
+        isFetching: true
       });
-    case FILTER_CHARACTERS_BY_LETTER:
+    case RECEIVE_CHARACTERS:
       return Object.assign({}, state, {
-        filter: action.payload
+        all: action.payload,
+        isFetching: false
       });
-    case FETCH_CHARACTER:
+    case RECEIVE_CHARACTERS_BY_LETTER:
       return Object.assign({}, state, {
-        character: action.payload
+        filter: action.payload,
+        isFetching: false
+      });
+    case RECEIVE_CHARACTER:
+      return Object.assign({}, state, {
+        character: action.payload,
+        isFetching: false
       });
     default:
       return state;

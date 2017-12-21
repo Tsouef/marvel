@@ -9,23 +9,24 @@ class Comic extends Component {
   }
 
   renderCharacters(characters) {
-    return characters.map(character => {
+    console.log(characters);
+    return characters.items.map(character => {
       return <li key={character.name}>{character.name}</li>;
     });
   }
 
   render() {
+    if (this.props.comics.comic.length <= 0) {
+      return <div>WAITING</div>;
+    }
     const {
       thumbnail,
       title,
       description,
       prices,
+      comics,
       characters
-    } = this.props.comic;
-
-    if (this.props.comic.length <= 0) {
-      return <div>Waiting</div>;
-    }
+    } = this.props.comics.comic;
 
     return (
       <div className="comic">
@@ -45,8 +46,8 @@ class Comic extends Component {
           </p>
           <p>
             <span className="meta">Characters: </span>
-            <ul className="comic-characters">
-              {this.renderCharacters(characters.items)}
+            <ul className="comic-comics">
+              {this.renderCharacters(characters)}
             </ul>
           </p>
         </div>
@@ -55,8 +56,8 @@ class Comic extends Component {
   }
 }
 
-function mapStateToProps({ comic }) {
-  return { comic };
+function mapStateToProps({ comics }) {
+  return { comics };
 }
 
 export default connect(mapStateToProps, { fetchComicById })(Comic);

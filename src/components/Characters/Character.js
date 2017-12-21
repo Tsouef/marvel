@@ -9,8 +9,11 @@ class Character extends Component {
   }
 
   render() {
-    if (this.props.characters.character.length <= 0) {
-      return <div>Waiting</div>;
+    if (
+      this.props.characters.isFetching ||
+      this.props.characters.character.length <= 0
+    ) {
+      return <div>Loading...</div>;
     }
 
     const { thumbnail, name, description } = this.props.characters.character;
