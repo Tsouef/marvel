@@ -26,9 +26,11 @@ export default function(state = INITIAL_STATE, action) {
         favorites: state.favorites.filter(({ id }) => id !== action.id)
       });
     case SHOW_NOTIFICATION:
+      console.log(action);
       return Object.assign({}, state, {
         showNotification: true,
-        notificationContent: action.text
+        notificationContent: action.text,
+        notificationState: action.state
       });
     case HIDE_NOTIFICATION:
       return Object.assign({}, state, {

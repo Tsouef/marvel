@@ -5,7 +5,7 @@ import './Notification.css';
 const Notification = ({ favorites }) => {
   if (favorites.showNotification) {
     return (
-      <div className="notification">
+      <div className={`notification ${favorites.notificationState}`}>
         <p>{favorites.notificationContent}</p>
       </div>
     );

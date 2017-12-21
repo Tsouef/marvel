@@ -18,8 +18,19 @@ class Characters extends Component {
   }
 
   handleFavorite(character) {
+    const exist = this.props.favorites.favorites.some(
+      item => item.id === character.id
+    );
+
+    if (exist) {
+      this.props.showNotificationWithTimeout(
+        'Already in our favorites.',
+        'error'
+      );
+      return;
+    }
     this.props.addFavorites(character);
-    this.props.showNotificationWithTimeout('Add to favorites.');
+    this.props.showNotificationWithTimeout('Add to favorites.', 'success');
   }
 
   renderContent() {
@@ -49,8 +60,8 @@ class Characters extends Component {
   }
 }
 
-function mapStateToProps({ characters }) {
-  return { characters };
+function mapStateToProps({ favorites, characters }) {
+  return { favorites, characters };
 }
 
 export default connect(mapStateToProps, {

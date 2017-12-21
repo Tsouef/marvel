@@ -21,8 +21,19 @@ class ComicsFilter extends Component {
   }
 
   handleFavorite(comic) {
+    const exist = this.props.favorites.favorites.some(
+      item => item.id === comic.id
+    );
+
+    if (exist) {
+      this.props.showNotificationWithTimeout(
+        'Already in our favorites.',
+        'error'
+      );
+      return;
+    }
     this.props.addFavorites(comic);
-    this.props.showNotificationWithTimeout('Add to favorites.');
+    this.props.showNotificationWithTimeout('Add to favorites.', 'success');
   }
 
   renderContent() {

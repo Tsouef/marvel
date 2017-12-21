@@ -4,7 +4,14 @@
   left: 50%;
   padding: 0 20px;
   border-radius: 3px;
-  background-color: rgba(51, 175, 100, 1);
   transform: translate(-50%, 0);
   z-index: 2;
+}
+
+.notification.success {
+  background-color: rgba(51, 175, 100, 1);
+}
+
+.notification.error {
+  background-color: red;
 }

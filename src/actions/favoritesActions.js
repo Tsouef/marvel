@@ -16,8 +16,8 @@ export const deleteFavorite = id => {
   return { type: DELETE_FAVORITE, id };
 };
 
-export const showNotification = (id, text) => {
-  return { type: SHOW_NOTIFICATION, id, text };
+export const showNotification = (id, text, state) => {
+  return { type: SHOW_NOTIFICATION, id, text, state };
 };
 
 export const hideNotification = id => {
@@ -25,11 +25,11 @@ export const hideNotification = id => {
 };
 
 let nextNotificationId = 0;
-export const showNotificationWithTimeout = text => dispatch => {
+export const showNotificationWithTimeout = (text, state) => dispatch => {
   const id = nextNotificationId++;
-  dispatch(showNotification(id, text));
+  dispatch(showNotification(id, text, state));
 
   setTimeout(() => {
     dispatch(hideNotification(id));
-  }, 3000);
+  }, 5000);
 };
