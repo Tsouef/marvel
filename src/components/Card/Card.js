@@ -8,6 +8,12 @@ const Card = ({ informations, title, onClick, category }) => {
     <div className="card">
       <div className="card-image">
         <img alt="" src={`${thumbnail.path}.${thumbnail.extension}`} />
+        <a
+          onClick={onClick}
+          className="btn-floating halfway-fab waves-effect waves-light red"
+        >
+          <i className="material-icons">add</i>
+        </a>
       </div>
       <div className="card-content">
         <span className="card-title">{title}</span>
@@ -15,7 +21,6 @@ const Card = ({ informations, title, onClick, category }) => {
       </div>
       <div className="card-action">
         <Link to={`/${category}/id/${id}`}>En voir plus</Link>
-        <button onClick={onClick}>Add to my favorites</button>
       </div>
     </div>
   );
