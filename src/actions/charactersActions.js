@@ -12,23 +12,20 @@ const params = `?ts=${TIMESTAMP}&apikey=${PUBLIC_KEY}&hash=${HASH}`;
 
 export const fetchCharacters = () => async dispatch => {
   dispatch({
-    type: FETCH_CHARACTERS,
-    isFetching: true
+    type: FETCH_CHARACTERS
   });
 
   const res = await axios.get(`${API_URL}/characters${params}&limit=100`);
 
   dispatch({
     type: RECEIVE_CHARACTERS,
-    payload: res.data.data.results,
-    isFetching: false
+    payload: res.data.data.results
   });
 };
 
 export const fetchCharactersByLetter = letter => async dispatch => {
   dispatch({
-    type: FETCH_CHARACTERS,
-    isFetching: true
+    type: FETCH_CHARACTERS
   });
   const res = await axios.get(
     `${API_URL}/characters${params}&nameStartsWith=${letter}&limit=100`
@@ -42,8 +39,7 @@ export const fetchCharactersByLetter = letter => async dispatch => {
 
 export const fetchCharacterById = id => async dispatch => {
   dispatch({
-    type: FETCH_CHARACTERS,
-    isFetching: true
+    type: FETCH_CHARACTERS
   });
 
   const res = await axios.get(`${API_URL}/characters/${id}${params}`);

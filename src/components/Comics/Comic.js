@@ -9,15 +9,14 @@ class Comic extends Component {
   }
 
   renderCharacters(characters) {
-    console.log(characters);
     return characters.items.map(character => {
       return <li key={character.name}>{character.name}</li>;
     });
   }
 
   render() {
-    if (this.props.comics.comic.length <= 0) {
-      return <div>WAITING</div>;
+    if (this.props.comics.isFetching || this.props.comics.comic.length <= 0) {
+      return <div>Loading...</div>;
     }
     const {
       thumbnail,

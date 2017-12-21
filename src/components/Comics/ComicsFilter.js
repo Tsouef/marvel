@@ -31,8 +31,8 @@ class ComicsFilter extends Component {
   }
 
   render() {
-    if (this.props.comics.filter.length <= 0) {
-      return <div>Waiting</div>;
+    if (this.props.comics.isFetching) {
+      return <div>Loading...</div>;
     }
 
     return (

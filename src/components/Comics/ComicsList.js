@@ -7,12 +7,14 @@ import Card from '../Card/Card';
 
 class Comics extends Component {
   componentDidMount() {
-    this.props.fetchComics();
+    if (this.props.comics.all.length <= 0) {
+      this.props.fetchComics();
+    }
   }
 
   renderContent() {
-    if (this.props.comics.all.length <= 0) {
-      return <div>Waiting</div>;
+    if (this.props.comics.isFetching) {
+      return <div>Loading...</div>;
     }
 
     return this.props.comics.all.map((comic, index) => {

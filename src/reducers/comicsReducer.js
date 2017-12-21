@@ -1,7 +1,9 @@
 import {
   FETCH_COMICS,
-  FETCH_COMIC,
-  FILTER_COMICS_BY_LETTER
+  RECEIVE_COMICS,
+  RECEIVE_COMIC,
+  RECEIVE_COMICS_BY_LETTER,
+  ADD_FAVORITE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -14,15 +16,22 @@ export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_COMICS:
       return Object.assign({}, state, {
-        all: action.payload
+        isFetching: true
       });
-    case FILTER_COMICS_BY_LETTER:
+    case RECEIVE_COMICS:
       return Object.assign({}, state, {
-        filter: action.payload
+        all: action.payload,
+        isFetching: false
       });
-    case FETCH_COMIC:
+    case RECEIVE_COMICS_BY_LETTER:
       return Object.assign({}, state, {
-        comic: action.payload
+        filter: action.payload,
+        isFetching: false
+      });
+    case RECEIVE_COMIC:
+      return Object.assign({}, state, {
+        comic: action.payload,
+        isFetching: false
       });
     default:
       return state;
