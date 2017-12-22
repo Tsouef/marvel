@@ -31,7 +31,7 @@ class Favorites extends Component {
 
   render() {
     if (this.props.favorites.favorites.length <= 0) {
-      return <div>Veuillez selectionner des favoris</div>;
+      return <div>Choose some favorites</div>;
     }
     return <div>{this.renderContent()}</div>;
   }

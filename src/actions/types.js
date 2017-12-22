@@ -15,3 +15,5 @@ export const ADD_FAVORITE = 'add_favorite';
 export const DELETE_FAVORITE = 'delete_favorite';
 export const SHOW_NOTIFICATION = 'show_notification';
 export const HIDE_NOTIFICATION = 'hide_notification';
+
+export const RESET_FILTERS = 'reset_filters';

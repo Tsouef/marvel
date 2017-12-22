@@ -4,6 +4,7 @@ import {
   FETCH_CHARACTERS,
   RECEIVE_CHARACTERS,
   RECEIVE_CHARACTER,
+  RESET_FILTERS,
   RECEIVE_CHARACTERS_BY_LETTER
 } from './types';
 
@@ -48,4 +49,10 @@ export const fetchCharacterById = id => async dispatch => {
     type: RECEIVE_CHARACTER,
     payload: res.data.data.results[0]
   });
+};
+
+export const resetFilters = () => {
+  return {
+    type: RESET_FILTERS
+  };
 };

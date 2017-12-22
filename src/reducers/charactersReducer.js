@@ -3,7 +3,8 @@ import {
   RECEIVE_CHARACTERS,
   RECEIVE_CHARACTERS_BY_LETTER,
   RECEIVE_CHARACTER,
-  ADD_FAVORITE
+  ADD_FAVORITE,
+  RESET_FILTERS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -31,6 +32,11 @@ export default function(state = INITIAL_STATE, action) {
     case RECEIVE_CHARACTER:
       return Object.assign({}, state, {
         character: action.payload,
+        isFetching: false
+      });
+    case RESET_FILTERS:
+      return Object.assign({}, state, {
+        filter: [],
         isFetching: false
       });
     default:
