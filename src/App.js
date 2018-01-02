@@ -12,29 +12,27 @@ import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
 import Favorites from './components/Favorites';
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="container" style={{ position: 'relative' }}>
-          <Route path="/" component={Header} />
-          <Route path="/" component={Notification} />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/comics" component={ComicsList} />
-          <Route exact path="/comics/id/:id" component={Comic} />
-          <Route exact path="/comics/letter/:letter" component={ComicsFilter} />
-          <Route exact path="/characters" component={CharactersList} />
-          <Route exact path="/characters/id/:id" component={Character} />
-          <Route
-            exact
-            path="/characters/letter/:letter"
-            component={CharactersFilter}
-          />
-          <Route exact path="/favorites" component={Favorites} />
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+const App = () => {
+  return (
+    <BrowserRouter>
+      <div className="container" style={{ position: 'relative' }}>
+        <Route path="/" component={Header} />
+        <Route path="/" component={Notification} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/comics" component={ComicsList} />
+        <Route exact path="/comics/id/:id" component={Comic} />
+        <Route exact path="/comics/letter/:letter" component={ComicsFilter} />
+        <Route exact path="/characters" component={CharactersList} />
+        <Route exact path="/characters/id/:id" component={Character} />
+        <Route
+          exact
+          path="/characters/letter/:letter"
+          component={CharactersFilter}
+        />
+        <Route exact path="/favorites" component={Favorites} />
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;

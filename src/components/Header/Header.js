@@ -7,9 +7,11 @@ const Header = () => {
     <header>
       <nav>
         <ul className="col s7">
-          <Link to="/" className="left brand-logo">
-            API MARVEL
-          </Link>
+          <li>
+            <Link to="/" className="left brand-logo">
+              API MARVEL
+            </Link>
+          </li>
         </ul>
         <ul className="nav-right col s5 right">
           <li>

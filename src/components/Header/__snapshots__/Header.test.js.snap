@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders without crashing 1`] = `
+<header>
+  <nav>
+    <ul
+      className="col s7"
+    >
+      <li>
+        <a
+          className="left brand-logo"
+          href="/"
+          onClick={[Function]}
+        >
+          API MARVEL
+        </a>
+      </li>
+    </ul>
+    <ul
+      className="nav-right col s5 right"
+    >
+      <li>
+        <a
+          href="/favorites"
+          onClick={[Function]}
+        >
+          Favorites
+        </a>
+      </li>
+      <li>
+        <a
+          href="/comics"
+          onClick={[Function]}
+        >
+          Comics
+        </a>
+      </li>
+      <li>
+        <a
+          href="/characters"
+          onClick={[Function]}
+        >
+          Characters
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
