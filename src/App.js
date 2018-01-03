@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Landing from './components/Landing';
+import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
 import Notification from './components/Notification/Notification';
 import ComicsList from './components/Comics/ComicsList';

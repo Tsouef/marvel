@@ -3,7 +3,15 @@ import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
+import Landing from './components/Landing/Landing';
 //
-test('invalid path should redirect to 404', () => {});
+test('Path should redirect to Landing', () => {
+  // const wrapper = shallow(
+  //   <MemoryRouter initialEntries={['/']}>
+  //     <App />
+  //   </MemoryRouter>
+  // );
+  // expect(wrapper.find(Landing)).toHaveLength(1);
+});
