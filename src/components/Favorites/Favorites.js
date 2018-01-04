@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { deleteFavorite } from '../actions';
+import { deleteFavorite } from '../../actions';
 
 class Favorites extends Component {
   renderContent() {

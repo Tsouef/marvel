@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component <Card /> should render Card component 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-image"
+  >
+    <img
+      alt=""
+      src="http://i.annihil.us/u/prod/marvel/i/mg/5/90/4c4e014aa3086.undefined"
+    />
+    <a
+      className="btn-floating halfway-fab waves-effect waves-light red"
+      onClick={undefined}
+    >
+      <i
+        className="material-icons"
+      >
+        add
+      </i>
+    </a>
+  </div>
+  <div
+    className="card-content"
+  >
+    <span
+      className="card-title"
+    >
+      Title
+    </span>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This is a description",
+        }
+      }
+    />
+  </div>
+  <div
+    className="card-action"
+  >
+    <a
+      href="/comics/id/1"
+      onClick={[Function]}
+    >
+      En voir plus
+    </a>
+  </div>
+</div>
+`;

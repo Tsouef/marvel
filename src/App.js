@@ -10,7 +10,7 @@ import Comic from './components/Comics/Comic';
 import CharactersList from './components/Characters/CharactersList';
 import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
-import Favorites from './components/Favorites';
+import Favorites from './components/Favorites/Favorites';
 
 const App = () => {
   return (

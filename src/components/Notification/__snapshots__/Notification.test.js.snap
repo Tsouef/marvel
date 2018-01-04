@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Component should no render message 1`] = `null`;
+
+exports[`Notification Component should render message error correctly 1`] = `
+<div
+  className="notification error"
+>
+  <p>
+    Already use
+  </p>
+</div>
+`;
+
+exports[`Notification Component should render message success correctly 1`] = `
+<div
+  className="notification success"
+>
+  <p>
+    Message success
+  </p>
+</div>
+`;

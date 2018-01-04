@@ -6,7 +6,7 @@ import {
   showNotificationWithTimeout
 } from '../../actions';
 
-import Pagination from '../Pagination';
+import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
 class Comics extends Component {

@@ -7,7 +7,7 @@ import {
 } from '../../actions';
 import Card from '../Card/Card';
 
-class Search extends Component {
+export class Search extends Component {
   state = { valueInput: '', valueSelect: 'characters' };
 
   onInputChange = event => {
@@ -29,7 +29,10 @@ class Search extends Component {
   };
 
   renderContent() {
-    if (this.props[this.state.valueSelect].filter.length < 1) {
+    if (
+      this.props[this.state.valueSelect] <= 0 ||
+      this.props[this.state.valueSelect].filter.length <= 0
+    ) {
       return;
     }
     return this.props[this.state.valueSelect].filter.map((item, index) => {
@@ -62,6 +65,7 @@ class Search extends Component {
             <input
               id="name"
               type="text"
+              name="title"
               placeholder="Enter a name"
               onChange={this.onInputChange}
               value={this.state.valueInput}

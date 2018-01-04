@@ -84,5 +84,6 @@ describe('Favorites actions', () => {
     store.dispatch(actions.showNotificationWithTimeout(text, state));
     jest.runAllTimers();
     expect(store.getActions()).toEqual(expectedActions);
+    expect(setTimeout).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component should render Search correctly 1`] = `
+<div>
+  <h5>
+    What do you want to search?
+  </h5>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <label>
+        Choose your category
+      </label>
+      <select
+        className="browser-default"
+        onChange={[Function]}
+      >
+        <option
+          value="characters"
+        >
+          characters
+        </option>
+        <option
+          value="comics"
+        >
+          comics
+        </option>
+      </select>
+    </div>
+    <div
+      className="input-field"
+    >
+      <input
+        id="name"
+        name="title"
+        onChange={[Function]}
+        placeholder="Enter a name"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="btn waves-effect waves-light"
+      disabled={true}
+      name="action"
+      type="submit"
+    >
+      Submit
+      <i
+        className="material-icons right"
+      >
+        send
+      </i>
+    </button>
+  </form>
+  <div
+    className="row"
+  />
+</div>
+`;

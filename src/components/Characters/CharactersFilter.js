@@ -8,7 +8,7 @@ import {
   hideNotification
 } from '../../actions';
 
-import Pagination from '../Pagination';
+import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
 class CharactersFilter extends Component {
