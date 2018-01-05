@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { fetchCharacterById } from '../../actions';
 import './Character.css';
 
-class Character extends Component {
+export class Character extends Component {
   componentDidMount() {
-    this.props.fetchCharacterById(this.props.match.params.id);
+    if (this.props.match) {
+      this.props.fetchCharacterById(this.props.match.params.id);
+    }
   }
 
   render() {

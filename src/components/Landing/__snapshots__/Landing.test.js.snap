@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing Component renders without crashing 1`] = `
+<div
+  className="container center-align"
+>
+  <h4>
+    Welcome to API MARVEL
+  </h4>
+  <p>
+    Navigate with different links in menu
+  </p>
+  <Connect(Search) />
+</div>
+`;

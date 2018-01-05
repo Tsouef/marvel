@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { deleteFavorite } from '../../actions';
 
-class Favorites extends Component {
+export class Favorites extends Component {
   renderContent() {
     return this.props.favorites.favorites.map((favorite, index) => {
       const { thumbnail, name, description, id } = favorite;
@@ -38,7 +38,6 @@ class Favorites extends Component {
 }
 
 function mapStateToProps({ favorites }) {
-  console.log(favorites);
   return { favorites };
 }
 
