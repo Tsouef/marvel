@@ -9,9 +9,11 @@ import {
 import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
-class ComicsFilter extends Component {
+export class ComicsFilter extends Component {
   componentDidMount() {
-    this.props.fetchComicsByLetter(this.props.match.params.letter);
+    if (this.props.match) {
+      this.props.fetchComicsByLetter(this.props.match.params.letter);
+    }
   }
 
   componentWillReceiveProps(nextProps) {

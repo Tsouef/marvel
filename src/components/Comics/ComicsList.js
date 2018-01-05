@@ -9,7 +9,7 @@ import {
 import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
-class Comics extends Component {
+export class Comics extends Component {
   componentDidMount() {
     if (this.props.comics.all.length <= 0) {
       this.props.fetchComics();

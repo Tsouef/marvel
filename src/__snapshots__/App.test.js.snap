@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render with default props 1`] = `
+<BrowserRouter>
+  <div
+    className="container"
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <Route
+      component={[Function]}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/comics"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/comics/id/:id"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/comics/letter/:letter"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/characters"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/characters/id/:id"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/characters/letter/:letter"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/favorites"
+    />
+  </div>
+</BrowserRouter>
+`;
