@@ -5,3 +5,45 @@ exports[`Character Component should render Character 1`] = `
   Loading...
 </div>
 `;
+
+exports[`Character Component should render with props 1`] = `
+<div
+  className="character"
+>
+  <div
+    className="character-cover"
+  >
+    <img
+      alt=""
+      src="path.jpg"
+    />
+  </div>
+  <div
+    className="character-description"
+  >
+    <p>
+      <span
+        className="meta"
+      >
+        Name: 
+      </span>
+       
+      character
+    </p>
+    <p>
+      <span
+        className="meta"
+      >
+        Description: 
+      </span>
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "text",
+          }
+        }
+      />
+    </p>
+  </div>
+</div>
+`;

@@ -11,9 +11,11 @@ import {
 import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
-class CharactersFilter extends Component {
+export class CharactersFilter extends Component {
   componentDidMount() {
-    this.props.fetchCharactersByLetter(this.props.match.params.letter);
+    if (this.props.match) {
+      this.props.fetchCharactersByLetter(this.props.match.params.letter);
+    }
   }
 
   componentWillReceiveProps(nextProps) {

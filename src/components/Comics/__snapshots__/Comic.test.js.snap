@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comic Component should render Comic 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`Comic Component should render with props 1`] = `
+<div
+  className="comic"
+>
+  <div
+    className="comic-cover"
+  >
+    <img
+      alt=""
+      src="path.jpg"
+    />
+  </div>
+  <div
+    className="comic-description"
+  >
+    <p>
+      <span
+        className="meta"
+      >
+        Title: 
+      </span>
+       
+      comic
+    </p>
+    <p>
+      <span
+        className="meta"
+      >
+        Description: 
+      </span>
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "text",
+          }
+        }
+      />
+    </p>
+    <p>
+      <span
+        className="meta"
+      >
+        Price: 
+      </span>
+       
+      0
+      $
+    </p>
+    <p>
+      <span
+        className="meta"
+      >
+        Characters: 
+      </span>
+      <ul
+        className="comic-comics"
+      >
+        <li>
+          Captain America
+        </li>
+      </ul>
+    </p>
+  </div>
+</div>
+`;

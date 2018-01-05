@@ -10,7 +10,7 @@ import {
 import Pagination from '../Pagination/Pagination';
 import Card from '../Card/Card';
 
-class Characters extends Component {
+export class Characters extends Component {
   componentDidMount() {
     if (this.props.characters.all.length <= 0) {
       this.props.fetchCharacters();
@@ -50,6 +50,7 @@ class Characters extends Component {
       );
     });
   }
+
   render() {
     return (
       <div>

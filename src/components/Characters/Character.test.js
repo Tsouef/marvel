@@ -23,9 +23,25 @@ describe('Character Component', () => {
   });
 
   it('should render with props', () => {
-    // const props = {
-    //
-    // };
+    const props = {
+      characters: {
+        character: {
+          thumbnail: { path: 'path', extension: 'jpg' },
+          name: 'character',
+          description: 'text'
+        },
+        isFetching: false
+      }
+    };
+
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <Character {...props} />
+        </MemoryRouter>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   // it('should render Character with elements', () => {
