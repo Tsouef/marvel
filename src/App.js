@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 
 import Landing from './components/Landing/Landing';
 import Header from './components/Header/Header';
@@ -13,10 +13,11 @@ import Character from './components/Characters/Character';
 import Favorites from './components/Favorites/Favorites';
 import Auth from './components/Auth/Auth';
 import PrivateRoute from './PrivateRoute';
+import history from './history';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div className="container" style={{ position: 'relative' }}>
         <Route path="/" component={Header} />
         <Route path="/" component={Notification} />
@@ -38,7 +39,7 @@ const App = () => {
         />
         <PrivateRoute exact path="/favorites" component={Favorites} />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 

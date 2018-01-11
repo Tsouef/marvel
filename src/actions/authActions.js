@@ -1,11 +1,14 @@
-import firebase from 'firebase';
+import firebase, { auth } from '../config/firebase';
+import history from '../history';
 
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOGIN_USER
+  LOGIN_USER,
+  LOGOUT_USER,
+  LOGOUT_USER_SUCCESS
 } from './types';
 
 export const emailChanged = text => {
@@ -50,4 +53,27 @@ const loginUserSuccess = (dispatch, user) => {
     type: LOGIN_USER_SUCCESS,
     payload: user
   });
+
+  history.push('/');
+};
+
+export const fetchUser = dispatch => {
+  return dispatch => {
+    auth.onAuthStateChanged(user => {
+      user
+        ? loginUserSuccess(dispatch, user)
+        : loginUserSuccess(dispatch, null);
+    });
+  };
+};
+
+export const logoutUser = dispatch => {
+  return dispatch => {
+    dispatch({ type: LOGOUT_USER });
+    auth.signOut().then(logoutUserSuccess(dispatch));
+  };
+};
+
+const logoutUserSuccess = dispatch => {
+  dispatch({ type: LOGOUT_USER_SUCCESS });
 };

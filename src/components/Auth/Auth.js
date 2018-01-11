@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import firebase, { auth } from '../../config/firebase.js';
 import { connect } from 'react-redux';
-import { loginUser, emailChanged, passwordChanged } from '../../actions';
+import {
+  loginUser,
+  emailChanged,
+  passwordChanged,
+  fetchUser
+} from '../../actions';
 
 class Auth extends Component {
+  componentDidMount() {
+    // this.props.fetchUser();
+  }
+
   onEmailChange = e => {
     this.props.emailChanged(e.target.value);
   };
@@ -75,5 +84,6 @@ const mapStateToProps = ({ auth }) => {
 export default connect(mapStateToProps, {
   loginUser,
   emailChanged,
-  passwordChanged
+  passwordChanged,
+  fetchUser
 })(Auth);
