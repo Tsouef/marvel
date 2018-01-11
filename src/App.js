@@ -12,6 +12,7 @@ import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
 import Favorites from './components/Favorites/Favorites';
 import Auth from './components/Auth/Auth';
+import PrivateRoute from './PrivateRoute';
 
 const App = () => {
   return (
@@ -19,19 +20,23 @@ const App = () => {
       <div className="container" style={{ position: 'relative' }}>
         <Route path="/" component={Header} />
         <Route path="/" component={Notification} />
-        <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Auth} />
-        <Route exact path="/comics" component={ComicsList} />
-        <Route exact path="/comics/id/:id" component={Comic} />
-        <Route exact path="/comics/letter/:letter" component={ComicsFilter} />
-        <Route exact path="/characters" component={CharactersList} />
-        <Route exact path="/characters/id/:id" component={Character} />
-        <Route
+        <PrivateRoute exact path="/" component={Landing} />
+        <PrivateRoute exact path="/comics" component={ComicsList} />
+        <PrivateRoute exact path="/comics/id/:id" component={Comic} />
+        <PrivateRoute
+          exact
+          path="/comics/letter/:letter"
+          component={ComicsFilter}
+        />
+        <PrivateRoute exact path="/characters" component={CharactersList} />
+        <PrivateRoute exact path="/characters/id/:id" component={Character} />
+        <PrivateRoute
           exact
           path="/characters/letter/:letter"
           component={CharactersFilter}
         />
-        <Route exact path="/favorites" component={Favorites} />
+        <PrivateRoute exact path="/favorites" component={Favorites} />
       </div>
     </BrowserRouter>
   );
