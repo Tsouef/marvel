@@ -17,3 +17,10 @@ export const SHOW_NOTIFICATION = 'show_notification';
 export const HIDE_NOTIFICATION = 'hide_notification';
 
 export const RESET_FILTERS = 'reset_filters';
+
+//USERS
+export const LOGIN_USER_SUCCESS = 'login_user_success';
+export const LOGIN_USER_FAIL = 'login_user_fail';
+export const LOGIN_USER = 'login_user';
+export const EMAIL_CHANGED = 'email_changed';
+export const PASSWORD_CHANGED = 'password_changed';

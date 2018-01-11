@@ -11,6 +11,7 @@ import CharactersList from './components/Characters/CharactersList';
 import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
 import Favorites from './components/Favorites/Favorites';
+import Auth from './components/Auth/Auth';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" component={Header} />
         <Route path="/" component={Notification} />
         <Route exact path="/" component={Landing} />
+        <Route exact path="/login" component={Auth} />
         <Route exact path="/comics" component={ComicsList} />
         <Route exact path="/comics/id/:id" component={Comic} />
         <Route exact path="/comics/letter/:letter" component={ComicsFilter} />
