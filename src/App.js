@@ -11,6 +11,7 @@ import CharactersList from './components/Characters/CharactersList';
 import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
 import Favorites from './components/Favorites/Favorites';
+import CreateForm from './components/Form/CreateForm';
 import Auth from './components/Auth/Auth';
 import PrivateRoute from './PrivateRoute';
 import history from './history';
@@ -38,6 +39,7 @@ const App = () => {
           component={CharactersFilter}
         />
         <PrivateRoute exact path="/favorites" component={Favorites} />
+        <PrivateRoute exact path="/add" component={CreateForm} />
       </div>
     </Router>
   );

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-
+import { Link } from 'react-router-dom';
 import { deleteFavorite, fetchFavorites } from '../../actions';
 
 export class Favorites extends Component {
@@ -36,7 +35,11 @@ export class Favorites extends Component {
 
   render() {
     if (this.props.favorites.favorites.length <= 0) {
-      return <div>Choose some favorites</div>;
+      return (
+        <div>
+          Choose some favorites or <Link to="/add">ADD</Link>
+        </div>
+      );
     }
     return <div>{this.renderContent()}</div>;
   }

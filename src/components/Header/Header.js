@@ -18,6 +18,9 @@ const Header = props => {
         {props.auth.user && (
           <ul className="nav-right col s5 right">
             <li>
+              <Link to="/add">Add new</Link>
+            </li>
+            <li>
               <Link to="/favorites">Favorites</Link>
             </li>
             <li>
