@@ -17,7 +17,9 @@ export const fetchFavorites = () => {
       .ref(`/users/${currentUser.uid}/favorites`)
       .on('value', snapshot => {
         console.log(snapshot.val());
-        if (snapshot.val() !== null) {
+        if (snapshot.val() === null) {
+          dispatch({ type: FETCH_FAVORITES_SUCCESS, payload: [] });
+        } else {
           let arr = Object.values(snapshot.val());
           dispatch({ type: FETCH_FAVORITES_SUCCESS, payload: arr });
         }
@@ -39,7 +41,20 @@ export const addFavorites = favorite => {
 };
 
 export const deleteFavorite = id => {
-  return { type: DELETE_FAVORITE, id };
+  const { currentUser } = firebase.auth();
+  return dispatch => {
+    let ref = firebase.database().ref(`/users/${currentUser.uid}/favorites`);
+
+    ref
+      .orderByChild('id')
+      .equalTo(id)
+      .once('value', snapshot => {
+        let updates = {};
+        snapshot.forEach(child => (updates[child.key] = null));
+        ref.update(updates);
+        dispatch({ type: DELETE_FAVORITE });
+      });
+  };
 };
 
 export const showNotification = (id, text, state) => {

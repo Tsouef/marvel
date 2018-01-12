@@ -1,6 +1,5 @@
 import {
   ADD_FAVORITE,
-  DELETE_FAVORITE,
   SHOW_NOTIFICATION,
   HIDE_NOTIFICATION,
   FETCH_FAVORITES_SUCCESS
@@ -16,10 +15,6 @@ export default function(state = INITIAL_STATE, action) {
     case FETCH_FAVORITES_SUCCESS:
       return Object.assign({}, state, {
         favorites: action.payload
-      });
-    case DELETE_FAVORITE:
-      return Object.assign({}, state, {
-        favorites: state.favorites.filter(({ id }) => id !== action.id)
       });
     case SHOW_NOTIFICATION:
       return Object.assign({}, state, {

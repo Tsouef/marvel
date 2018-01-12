@@ -9,8 +9,8 @@ import {
 
 class Auth extends Component {
   componentDidMount() {
-    console.log('Auth: componentDidMount');
     this.props.fetchUser();
+    console.log(this.props);
   }
 
   onEmailChange = e => {

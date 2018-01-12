@@ -8,9 +8,9 @@ export class Favorites extends Component {
   componentDidMount() {
     this.props.fetchFavorites();
   }
+
   renderContent() {
     return this.props.favorites.favorites.map((favorite, index) => {
-      console.log(favorite);
       const { thumbnail, name, description, id } = favorite;
       return (
         <div key={id} className="card">
@@ -35,8 +35,6 @@ export class Favorites extends Component {
   }
 
   render() {
-    console.log('render props', this.props.favorites.favorites);
-
     if (this.props.favorites.favorites.length <= 0) {
       return <div>Choose some favorites</div>;
     }
