@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import firebase, { auth } from '../../config/firebase.js';
 import { connect } from 'react-redux';
 import {
   loginUser,
@@ -10,7 +9,8 @@ import {
 
 class Auth extends Component {
   componentDidMount() {
-    // this.props.fetchUser();
+    console.log('Auth: componentDidMount');
+    this.props.fetchUser();
   }
 
   onEmailChange = e => {

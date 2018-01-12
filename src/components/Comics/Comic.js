@@ -25,7 +25,6 @@ export class Comic extends Component {
       title,
       description,
       prices,
-      comics,
       characters
     } = this.props.comics.comic;
 

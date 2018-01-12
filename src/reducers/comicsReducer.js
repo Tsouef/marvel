@@ -3,7 +3,6 @@ import {
   RECEIVE_COMICS,
   RECEIVE_COMIC,
   RECEIVE_COMICS_BY_LETTER,
-  ADD_FAVORITE,
   RESET_FILTERS
 } from '../actions/types';
 
