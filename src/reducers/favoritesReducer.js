@@ -2,7 +2,8 @@ import {
   ADD_FAVORITE,
   DELETE_FAVORITE,
   SHOW_NOTIFICATION,
-  HIDE_NOTIFICATION
+  HIDE_NOTIFICATION,
+  FETCH_FAVORITES_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -12,14 +13,9 @@ const INITIAL_STATE = {
 };
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case ADD_FAVORITE:
+    case FETCH_FAVORITES_SUCCESS:
       return Object.assign({}, state, {
-        favorites: state.favorites.concat({
-          id: action.payload.id,
-          thumbnail: action.payload.thumbnail,
-          name: action.payload.name,
-          description: action.payload.description
-        })
+        favorites: action.payload
       });
     case DELETE_FAVORITE:
       return Object.assign({}, state, {
@@ -35,6 +31,7 @@ export default function(state = INITIAL_STATE, action) {
       return Object.assign({}, state, {
         showNotification: false
       });
+    case ADD_FAVORITE:
     default:
       return state;
   }
