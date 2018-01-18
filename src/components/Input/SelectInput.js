@@ -8,12 +8,10 @@ const SelectInput = ({
   placeholder,
   value,
   children
-}) => {
-  return (
-    <select className={className} onChange={onSelectChange}>
-      {children}
-    </select>
-  );
-};
+}) => (
+  <select className={className} onChange={onSelectChange}>
+    {children}
+  </select>
+);
 
 export default SelectInput;

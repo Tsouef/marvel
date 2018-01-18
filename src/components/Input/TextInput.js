@@ -8,18 +8,16 @@ const TextInput = ({
   type,
   placeholder,
   value
-}) => {
-  return (
-    <input
-      id={id}
-      className={className}
-      name={name}
-      onChange={onChange}
-      type={type}
-      placeholder={placeholder}
-      value={value}
-    />
-  );
-};
+}) => (
+  <input
+    id={id}
+    className={className}
+    name={name}
+    onChange={onChange}
+    type={type}
+    placeholder={placeholder}
+    value={value}
+  />
+);
 
 export default TextInput;

@@ -8,18 +8,16 @@ const Button = ({
   onClick,
   children,
   disabled = false
-}) => {
-  return (
-    <button
-      className={className}
-      type={type}
-      name={action}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={className}
+    type={type}
+    name={action}
+    onClick={onClick}
+    disabled={disabled}
+  >
+    {children}
+  </button>
+);
 
 export default Button;
