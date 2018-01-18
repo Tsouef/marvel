@@ -10,7 +10,8 @@ export class Favorites extends Component {
 
   renderContent() {
     return this.props.favorites.favorites.map((favorite, index) => {
-      const { thumbnail, name, description, id } = favorite;
+      console.log(favorite);
+      const { thumbnail, title, description, id } = favorite;
       return (
         <div key={id} className="card">
           <div className="card-image">
@@ -23,7 +24,7 @@ export class Favorites extends Component {
             </a>
           </div>
           <div className="card-content">
-            <span className="card-title">{name}</span>
+            <span className="card-title">{title}</span>
             <p>
               <span dangerouslySetInnerHTML={{ __html: description }} />
             </p>

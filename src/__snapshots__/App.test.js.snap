@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should render with default props 1`] = `
-<BrowserRouter>
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
   <div
     className="container"
     style={
@@ -21,43 +42,48 @@ exports[`<App /> should render with default props 1`] = `
     <Route
       component={[Function]}
       exact={true}
+      path="/login"
+    />
+    <Connect(PrivateRoute)
+      component={[Function]}
+      exact={true}
       path="/"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/comics"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/comics/id/:id"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/comics/letter/:letter"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/characters"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/characters/id/:id"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/characters/letter/:letter"
     />
-    <Route
+    <Connect(PrivateRoute)
       component={[Function]}
       exact={true}
       path="/favorites"
     />
   </div>
-</BrowserRouter>
+</Router>
 `;

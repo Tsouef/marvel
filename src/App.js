@@ -39,7 +39,7 @@ const App = () => {
           component={CharactersFilter}
         />
         <PrivateRoute exact path="/favorites" component={Favorites} />
-        <PrivateRoute exact path="/add" component={CreateForm} />
+        {/* <PrivateRoute exact path="/add" component={CreateForm} /> */}
       </div>
     </Router>
   );

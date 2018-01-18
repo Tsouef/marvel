@@ -6,7 +6,16 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  favorites: [],
+  favorites: [
+    {
+      title: '',
+      thumbnail: {
+        path: '',
+        extension: ''
+      },
+      description: ''
+    }
+  ],
   showNotification: false,
   notificationContent: ''
 };

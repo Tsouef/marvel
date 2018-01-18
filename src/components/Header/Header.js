@@ -17,9 +17,9 @@ const Header = props => {
         </ul>
         {props.auth.user && (
           <ul className="nav-right col s5 right">
-            <li>
+            {/* <li>
               <Link to="/add">Add new</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/favorites">Favorites</Link>
             </li>

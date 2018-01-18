@@ -34,6 +34,7 @@ export class ComicsFilter extends Component {
       );
       return;
     }
+
     this.props.addFavorites(comic);
     this.props.showNotificationWithTimeout('Add to favorites.', 'success');
   }
@@ -66,8 +67,8 @@ export class ComicsFilter extends Component {
   }
 }
 
-function mapStateToProps({ comics }) {
-  return { comics };
+function mapStateToProps({ comics, favorites }) {
+  return { comics, favorites };
 }
 
 export default connect(mapStateToProps, {

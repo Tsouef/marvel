@@ -17,6 +17,8 @@ export class Comics extends Component {
   }
 
   handleFavorite(comic) {
+    console.log(this.props.favorites.favorites);
+
     const exist = this.props.favorites.favorites.some(
       item => item.id === comic.id
     );
