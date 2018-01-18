@@ -12,9 +12,9 @@ import CharactersFilter from './components/Characters/CharactersFilter';
 import Character from './components/Characters/Character';
 import Favorites from './components/Favorites/Favorites';
 import CreateForm from './components/Form/CreateForm';
-import Auth from './components/Auth/Auth';
-import PrivateRoute from './PrivateRoute';
-import history from './history';
+import AuthContainer from './Containers/AuthContainer';
+import PrivateRoute from './routes/PrivateRoute';
+import history from './routes/history';
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
       <div className="container" style={{ position: 'relative' }}>
         <Route path="/" component={Header} />
         <Route path="/" component={Notification} />
-        <Route exact path="/login" component={Auth} />
+        <Route exact path="/login" component={AuthContainer} />
         <PrivateRoute exact path="/" component={Landing} />
         <PrivateRoute exact path="/comics" component={ComicsList} />
         <PrivateRoute exact path="/comics/id/:id" component={Comic} />

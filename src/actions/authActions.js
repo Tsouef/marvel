@@ -1,5 +1,5 @@
 import firebase, { auth } from '../config/firebase';
-import history from '../history';
+import history from '../routes/history';
 
 import {
   EMAIL_CHANGED,
