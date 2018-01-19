@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
+  fetchCharacters,
   fetchComics,
   addFavorites,
   showNotificationWithTimeout
-} from '../../actions';
+} from '../actions';
 
-import Pagination from '../Pagination/Pagination';
-import Card from '../Card/Card';
+import Pagination from '../components/Pagination/Pagination';
+import Card from '../components/Card/Card';
 
-export class Comics extends Component {
+class SearchCategory extends Component {
   componentDidMount() {
-    if (this.props.comics.all.length <= 0) {
+    console.log(this.props);
+    const { category } = this.props;
+    if (category === 'characters') {
+      this.props.fetchCharacters();
+    } else {
       this.props.fetchComics();
     }
   }
 
-  handleFavorite(comic) {
-    console.log(this.props.favorites.favorites);
-
+  handleFavorite(elem) {
     const exist = this.props.favorites.favorites.some(
-      item => item.id === comic.id
+      item => item.id === elem.id
     );
 
     if (exist) {
@@ -30,43 +33,46 @@ export class Comics extends Component {
       );
       return;
     }
-    this.props.addFavorites(comic);
+    this.props.addFavorites(elem);
     this.props.showNotificationWithTimeout('Add to favorites.', 'success');
   }
 
   renderContent() {
-    if (this.props.comics.isFetching) {
+    const { category } = this.props;
+    if (this.props[category].isFetching) {
       return <div>Loading...</div>;
     }
 
-    return this.props.comics.all.map((comic, index) => {
+    return this.props[category].all.map((elem, index) => {
       return (
         <Card
           key={index}
-          informations={comic}
-          title={comic.title}
-          onClick={() => this.handleFavorite(comic)}
+          informations={elem}
+          title={elem.title}
+          onClick={() => this.handleFavorite(elem)}
           category="comics"
         />
       );
     });
   }
+
   render() {
     return (
       <div>
-        <Pagination category="comics" />
+        <Pagination category={this.props.category} />
         <div className="row card-container">{this.renderContent()}</div>
       </div>
     );
   }
 }
 
-function mapStateToProps({ comics, favorites }) {
-  return { comics, favorites };
+function mapStateToProps({ comics, characters, favorites }) {
+  return { comics, characters, favorites };
 }
 
 export default connect(mapStateToProps, {
+  fetchCharacters,
   fetchComics,
   addFavorites,
   showNotificationWithTimeout
-})(Comics);
+})(SearchCategory);
