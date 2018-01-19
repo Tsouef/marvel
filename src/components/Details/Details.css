@@ -1,12 +1,12 @@
-.comic {
+.details {
   margin: 20px 0 0 0;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
 }
 
-.comic-description {
+.details-description {
   display: flex;
   flex-direction: column;
   margin: 0 0 0 20px;
@@ -17,7 +17,7 @@
   font-size: 15px;
 }
 
-.comic-characters li {
+.details li {
   margin: 0 0 0 15px;
   line-height: 1.4;
 }

@@ -12,7 +12,6 @@ import Card from '../components/Card/Card';
 
 class SearchCategory extends Component {
   componentDidMount() {
-    console.log(this.props);
     const { category } = this.props;
     if (category === 'characters') {
       this.props.fetchCharacters();
@@ -50,7 +49,7 @@ class SearchCategory extends Component {
           informations={elem}
           title={elem.title}
           onClick={() => this.handleFavorite(elem)}
-          category="comics"
+          category={category}
         />
       );
     });

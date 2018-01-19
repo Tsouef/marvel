@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteFavorite, fetchFavorites } from '../../actions';
+import { deleteFavorite, fetchFavorites } from '../actions';
+
+import Card from '../components/Card/Card';
 
 export class Favorites extends Component {
   componentDidMount() {
@@ -10,26 +12,14 @@ export class Favorites extends Component {
 
   renderContent() {
     return this.props.favorites.favorites.map((favorite, index) => {
-      console.log(favorite);
       const { thumbnail, title, description, id } = favorite;
       return (
-        <div key={id} className="card">
-          <div className="card-image">
-            <img alt="" src={`${thumbnail.path}.${thumbnail.extension}`} />
-            <a
-              onClick={() => this.props.deleteFavorite(id)}
-              className="btn-floating halfway-fab waves-effect waves-light red"
-            >
-              <i className="material-icons">delete</i>
-            </a>
-          </div>
-          <div className="card-content">
-            <span className="card-title">{title}</span>
-            <p>
-              <span dangerouslySetInnerHTML={{ __html: description }} />
-            </p>
-          </div>
-        </div>
+        <Card
+          key={index}
+          informations={favorite}
+          title={favorite.title}
+          onDelete={() => this.props.deleteFavorite(id)}
+        />
       );
     });
   }

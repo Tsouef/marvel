@@ -63,7 +63,7 @@ class SearchCategoryByFilter extends Component {
           informations={elem}
           title={elem.title}
           onClick={() => this.handleFavorite(elem)}
-          category="comics"
+          category={category}
         />
       );
     });

@@ -9,7 +9,7 @@ const Header = props => (
     <nav>
       <ul className="col s7">
         <li>
-          <Link to="/" className="left brand-logo">
+          <Link to="/search" className="left brand-logo">
             API MARVEL
           </Link>
         </li>
