@@ -17,34 +17,48 @@ const Routes = () => (
   <div className="container" style={{ position: 'relative' }}>
     <Route path="/" component={Header} />
     <Route path="/" component={Notification} />
-    <Route path="/" component={AuthContainer} />
-    <Route exact path="/search" component={Landing} />
-    <Route exact path="/comics/id/:id" component={ComicContainer} />
-    <Route exact path="/characters/id/:id" component={CharacterContainer} />
-    <Route
+    <Route exact path="/" component={Landing} />
+    <Route path="/login" component={AuthContainer} />
+
+    <PrivateRoute
+      exact
+      path="/comics/id/:id"
+      component={ComicContainer}
+      category="comics"
+    />
+    <PrivateRoute
+      exact
+      path="/characters/id/:id"
+      component={CharacterContainer}
+      category="characters"
+    />
+    <PrivateRoute
       exact
       path="/comics"
-      render={props => <SearchCategory {...props} category="comics" />}
+      component={SearchCategory}
+      category="comics"
     />
-    <Route
+    <PrivateRoute
       exact
       path="/comics/letter/:letter"
-      render={props => <SearchCategoryByFilter {...props} category="comics" />}
+      component={SearchCategoryByFilter}
+      category="comics"
     />
-    <Route
+    <PrivateRoute
       exact
       path="/characters"
-      render={props => <SearchCategory {...props} category="characters" />}
+      component={SearchCategory}
+      category="characters"
     />
-    <Route
+    <PrivateRoute
       exact
       path="/characters/letter/:letter"
-      render={props => (
-        <SearchCategoryByFilter {...props} category="characters" />
-      )}
+      component={SearchCategoryByFilter}
+      category="characters"
     />
-    <Route exact path="/favorites" component={Favorites} />
-    {/* <PrivateRoute exact path="/add" component={CreateForm} /> */}
+    <PrivateRoute exact path="/favorites" component={Favorites} />
+
+    {/* <PrivatePrivateRoute exact path="/add" component={CreateForm} /> */}
   </div>
 );
 

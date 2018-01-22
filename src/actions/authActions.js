@@ -58,7 +58,7 @@ const loginUserSuccess = (dispatch, user) => {
     payload: user
   });
 
-  history.push('/search');
+  history.push('/');
 };
 
 export const fetchUser = dispatch => {

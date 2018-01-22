@@ -30,6 +30,7 @@ class AuthContainer extends Component {
   };
 
   render() {
+    console.log('passe par là');
     return (
       <Login
         {...this.props}
@@ -42,8 +43,8 @@ class AuthContainer extends Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  const { email, password, error, loading } = auth;
-  return { email, password, error, loading };
+  const { email, password, error, loading, user } = auth;
+  return { email, password, error, loading, user };
 };
 
 export default connect(mapStateToProps, {
